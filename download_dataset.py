@@ -4,9 +4,6 @@ from pathlib import Path
 import urllib.request  # the lib that handles the url stuff
 import re
 
-
-
-
 if __name__ == "__main__":
   test_data_list = "data/STTs.csv"
   test_data_dir = Path("data/transcripts")

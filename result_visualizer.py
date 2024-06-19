@@ -75,11 +75,6 @@ for nr in ner_keywords:
         if nr not in over_all_keywords:
                 over_all_keywords.insert(0, nr)
                 # over_all_keywords.append(nr)
-
-
-
-
-
 ner_keywords_print = ", ".join(ner_keywords)
 st.write(ner_keywords_print)
 

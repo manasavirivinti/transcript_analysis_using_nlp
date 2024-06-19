@@ -17,7 +17,6 @@ def slugify(value, allow_unicode=False):
         value = unicodedata.normalize('NFKD', value).encode('ascii', 'ignore').decode('ascii')
     value = re.sub(r'[^\w\s-]', '', value.lower())
     return re.sub(r'[-\s]+', '-', value).strip('-_')
-
 DATA_DIR = Path("data/output")
 transcript_dir = DATA_DIR.joinpath("summary")
 for fpath in transcript_dir.iterdir():
@@ -25,3 +24,7 @@ for fpath in transcript_dir.iterdir():
     print(f"New Name:{slugify(fpath.stem)}.json")
     fpath.rename(transcript_dir.joinpath(f"{slugify(fpath.stem)}.json"))
     # fpath.rename(transcript_dir.joinpath(f"{fpath.stem[8:]}.json"))
+
+
+# for large volumes of data:
+# we can use library named multiprocessing or it can scaled using distributed computing using apache spark

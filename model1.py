@@ -5,10 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import mean_squared_error, r2_score
-
-# Sample dataset
 data = pd.read_csv('./data/STTs.csv')
-
 # Hypothetical target: Predicting the number of words in a sentence
 data['num_words'] = data['name'].apply(lambda x: len(x.split()))
 

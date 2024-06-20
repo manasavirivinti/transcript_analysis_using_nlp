@@ -9,6 +9,7 @@ from fuzzysearch import find_near_matches
 from fuzzywuzzy import process
 from topic_detector import get_topics, get_topic_gpt3, get_topics_top
 import pandas as pd
+import matplotlib.pyplot as plt
 data_dir = Path("data")
 EXPERIMENT_OUTPUT_DIR = "output"
 Test_Data_Dir = data_dir.joinpath("transcripts")
@@ -93,12 +94,29 @@ topic_dict_all = get_topics(summary)
 topic_dict = get_topics_top(topic_dict_all, summary)
 df = pd.DataFrame(topic_dict, columns =['Topic', 'Value'])
 df.set_index('Topic', inplace=True)
+# box plot
 st.bar_chart(df)
-
-
 topic_dict_gpt3 = get_topic_gpt3(summary_outfile.name)
 df_gpt3 = pd.DataFrame(topic_dict_gpt3, columns =['Topic', 'Value'])
 df_gpt3.set_index('Topic', inplace=True)
 st.bar_chart(df_gpt3)
 
 # st.write(df)
+
+# Plotting pie chart without labels
+fig, ax = plt.subplots()
+ax.pie(df['Value'], labels=None, autopct='%1.1f%%', startangle=90, textprops={'fontsize': 10})
+ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.legend(df.index, loc='upper left', bbox_to_anchor=(1, 0.5), fontsize='small')
+st.pyplot(fig)
+
+topic_dict_gpt3 = get_topic_gpt3(summary_outfile.name)
+df_gpt3 = pd.DataFrame(topic_dict_gpt3, columns=['Topic', 'Value'])
+df_gpt3.set_index('Topic', inplace=True)
+
+# Plotting pie chart for GPT-3 topics without labels
+fig_gpt3, ax_gpt3 = plt.subplots()
+ax_gpt3.pie(df_gpt3['Value'], labels=None, autopct='%1.1f%%', startangle=90, textprops={'fontsize': 10})
+ax_gpt3.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+plt.legend(df_gpt3.index, loc='upper left', bbox_to_anchor=(1, 0.5), fontsize='small')
+st.pyplot(fig_gpt3)

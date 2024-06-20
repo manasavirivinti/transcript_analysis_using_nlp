@@ -46,10 +46,6 @@ def create_output_directories(data_dir,output_dir_name,experiment_summary ):
     with open(output_dir.joinpath("experiment_description.md"),"w") as fp:
         fp.write(experiment_summary)
     return summary_output_dir, keyword_output_dir, topic_output_dir
-
-
-
-
 if __name__ == "__main__":
     EXPERIMENT_OUTPUT_DIR = "output"
     EXPERIMENT_DESCRIPTION = """

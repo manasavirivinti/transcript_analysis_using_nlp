@@ -9,17 +9,7 @@ import math
 from scipy.special import softmax
 from pathlib import Path
 import pickle
-
-# TODO: code cleanup and redesigning is required
-
 model1 = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
-
-# Get the summarized text
-
-
-# List of main topics --> 17
-
-
 topic_new_dict = {
 'Law' : ["In modern politics, law and order is the approach focusing on harsher enforcement and penalties as ways to reduce crime.[1] Penalties for perpetrators of disorder may include longer terms of imprisonment", "The final judgement in the dispute was declared by the Supreme Court of India on 9 November 2019" , "Legal policy consists of principles the judges consider the law must uphold, such as: that law should serve the public interest, that it should be fair and just","A criminal charge is a formal accusation made by a governmental authority (usually a public prosecutor or the police) asserting that somebody has committed a crime","Court cases that involve disputes between people or businesses over money or some injury to personal rights are called “civil” cases", 'Human Rights',"A constitution is the aggregate of fundamental principles or established precedents that constitute the legal basis of a polity, organisation or other type of entity and commonly determine how that entity is to be governed"],
 'Philosophy, thoughts and spirituality' : ["Philosophy is the systematized study of general and fundamental questions, such as those about existence, reason, knowledge, values, mind, and language","spirituality referred to a religious process of re-formation which aims to recover the original shape of man oriented at the image of God as exemplified by the founders and sacred texts of the religions of the world","Metaphysics is the branch of philosophy that studies the fundamental nature of reality; the first principles of being, identity and change, space and time, cause and effect, necessity and possibility","Ethics or moral philosophy is a branch[1] of philosophy that involves systematizing, defending, and recommending concepts of right and wrong behavior","A school of thought, or intellectual tradition, is the perspective of a group of people who share common characteristics of opinion or outlook of a philosophy,[1] discipline, belief, social movement, economics, cultural movement, or art movement"],
@@ -36,7 +26,6 @@ topic_new_dict = {
 'World affairs' : ["Climate is the long-term weather pattern in a region, typically averaged over 30 years.[1][2] More rigorously, it is the mean and variability of meteorological variables over a time spanning from months to millions of years", "The natural environment or natural world encompasses all living and non-living things occurring naturally, meaning in this case not artificial","Geopolitics  is the study of the effects of Earth's geography (human and physical) on politics and international relations","A social issue is a problem that affects many people within a society. It is a group of common problems in present-day society and ones that many people strive to solve. It is often the consequence of factors extending beyond an individual's control. Social issues are the source of conflicting opinions on the grounds of what is perceived as morally correct or incorrect personal life or interpersonal social life decisions"]
 
 }
-
 
 # topic_new_dict = {
 # 'Law' : ['Law and Order', 'Court Verdicts','Legal Policy','Criminal Charges','Civil cases', 'Human Rights','Constitution'],
